@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="inner__wrapper">
+        <div class="header__wrapper">
+            <div class="logo__box">
+                <a href="/"><img th:src="@{/img/logo.svg}" alt=""></a>
+            </div>
+            <div class="navigation__box">
+                <nav>
+                    <ul>
+                        <li><a href="/">Deposit</a></li>
+                        <li><a href="/">Loan</a></li>
+                        <li><a href="/">Card</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nothing__box">
+                <span>ENG</span>
+            </div>
+        </div>
+
+        <div class="main__wrapper">
+            <h1 class="main__title">Commercial banks of Kyrgyzstan</h1>
+            <p class="main__text">Complete list of operating commercial banks in Kyrgyzstan. Loan and deposit rates, debit/credit cards, vacancies, addresses and telephone numbers.</p>
+            <div class="banks_list__box">
+                <div class="bank__item" th:each="bank : ${banks}">
+                    <a th:href="'/' + ${bank.bankName}">
+                        <img th:src="@{/img/fancy_pic.svg}" alt="">
+                        <p th:text="${bank.bankName}"></p>
+                    </a>
+                </div>
+                <a class="bank__add" href="/bank/add">
+                    <p>Add new bank</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
