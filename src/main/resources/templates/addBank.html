@@ -2,14 +2,57 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/addBank.css}">
-    <title>New Bank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/bankForm.css}">
+    <title>Document</title>
 </head>
 <body>
-<form action="/bank/add" method="post" enctype="multipart/form-data">
-    <input type="text" name="bankName" placeholder="Name of the Bank"><br>
-    <textarea name="details" placeholder="Enter some details..."></textarea>
-    <button type="submit">Add</button>
-</form>
+<div class="wrapper">
+    <div class="inner__wrapper">
+        <div class="header__wrapper">
+            <div class="logo__box">
+                <a href="/"><img th:src="@{/img/logo.svg}" alt=""></a>
+            </div>
+            <div class="navigation__box">
+                <nav>
+                    <ul>
+                        <li><a href="/">Deposit</a></li>
+                        <li><a href="/">Loan</a></li>
+                        <li><a href="/">Card</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nothing__box">
+                <span>ENG</span>
+            </div>
+        </div>
+
+        <div class="main__wrapper">
+            <h1 class="main__title">Add new Bank</h1>
+            <div class="main__form">
+
+                <form action="/bank/add" method="POST" class="form__box" enctype="multipart/form-data">
+                    <div class="form__item">
+                        <span class="form__label">Enter naming of the Bank</span>
+                        <input type="text" name="bankName" placeholder="Name of the Bank">
+                    </div>
+                    <div class="form__item">
+                        <span class="form__label">Additional details</span>
+                        <textarea name="details" placeholder="Enter some details..."></textarea>
+                    </div>
+                    <div class="form__item">
+                        <label for="file">Select image</label>
+                        <input type="file" id="file" name="file" value="Choose a picture for bank">
+                    </div>
+                    <div class="form__item__btn">
+                        <button type="submit">Add</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

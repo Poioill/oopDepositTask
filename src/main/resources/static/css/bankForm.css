@@ -1,0 +1,66 @@
+.main__form{
+    margin-top: 30px;
+    width: 900px;
+}
+.form__label{
+    font-size: 18px;
+    color: #21415E;
+}
+.form__item input[type="text"], .form__item textarea{
+    padding: 15px 14px;
+    width: 700px;
+    border: 1px #21415E solid;
+    opacity: 0.6;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.form__item textarea{
+    height: 240px;
+}
+.form__box{
+    width: 100%;
+}
+.form__item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    align-items: center;
+    gap: 30px;
+}
+.form__label{
+    width: 28%;
+    text-align: right;
+}
+.form__item__btn {
+    text-align: left;
+    margin-left: 29%;
+}
+.form__item__btn button{
+    font-size: 18px;
+    padding: 10px 0;
+    width: 150px;
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+.form__item__btn button:nth-child(1){
+    background-color: #E3F1CD;
+    font-weight: medium;
+    color: #34516C;
+    border-radius: 4px;
+}
+.form__item__btn button:nth-child(1):hover{
+    background-color: #8aa460;
+    transition-duration: 0.4s;
+}
+.form__item__btn button:nth-child(2){
+    border-bottom: 1.5px solid #B66161;
+    background-color: transparent;
+    color: #831D2A;
+}
+.form__item__btn button:nth-child(2):hover{
+    border-bottom: none;
+    background-color: #efe8e8;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}

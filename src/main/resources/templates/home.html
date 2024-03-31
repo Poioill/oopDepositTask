@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Document</title>
 </head>
 <body>
@@ -33,7 +33,9 @@
             <div class="banks_list__box">
                 <div class="bank__item" th:each="bank : ${banks}">
                     <a th:href="'/' + ${bank.bankName}">
-                        <img th:src="@{/img/fancy_pic.svg}" alt="">
+                        <div th:each="img : ${image}">
+                            <img th:src="'/image/' + ${img.id}" alt=""/>
+                        </div>
                         <p th:text="${bank.bankName}"></p>
                     </a>
                 </div>

@@ -2,9 +2,102 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${bank.bankName}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/aboutBank.css}">
+    <link rel="stylesheet" th:href="@{/css/bankForm.css}">
+    <title>Document</title>
 </head>
 <body>
-<p th:text="${bank.details}"></p><br>
+<div class="wrapper">
+    <div class="inner__wrapper">
+        <div class="header__wrapper">
+            <div class="logo__box">
+                <a href="/"><img th:src="@{/img/logo.svg}" alt=""></a>
+            </div>
+            <div class="navigation__box">
+                <nav>
+                    <ul>
+                        <li><a href="/">Deposit</a></li>
+                        <li><a href="/">Loan</a></li>
+                        <li><a href="/">Card</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nothing__box">
+                <span>ENG</span>
+            </div>
+        </div>
+
+        <div class="main__wrapper">
+            <div class="main__bank__title">
+                <img src="/img/svg/bankLogoBakai.svg" alt="">
+            </div>
+            <div class="main__deposit-intro">
+                <div class="deposit__title">
+                    <h6>Deposit accounts</h6>
+                    <p>High interest rate. Monthly interest payment. Replenishment option. Partial withdrawal</p>
+                </div>
+                <div class="deposit__image">
+                    <img th:src="@{/img/bankIcon.svg}" alt="">
+                </div>
+            </div>
+            <div class="main__deposit__box">
+                <p>Available options</p>
+                <div class="deposit__item"  th:each="deposit : ${bank.deposits}">
+                        <span class="deposit__naming" th:text="${deposit.naming}"></span>
+                    <ul>
+                        <li>Interest rate</li>
+                        <li>Additional down payment </li>
+                        <li>Early termination</li>
+                        <li>Monthly payout %</li>
+                        <li>Capitalization %</li>
+                        <li>Partial withdrawal</li>
+                    </ul>
+                    <div class="deposit__request">
+                        <a href="#">Submit a request</a>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <p>Add new Deposit</p>
+        <br>
+        <form th:action="${bankName} + '/deposit/add'" class="form__box" method="post">
+            <div class="form__item">
+                <span class="form__label">Enter naming</span>
+                <input type="text" name="naming">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Enter interest rate</span>
+                <input type="number" step="any" name="interestRate">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Is early termination allowed?</span>
+                <input type="text" name="earlyTermination">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Is monthly payout possible?</span>
+                <input type="text" name="monthlyPayout">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Is capitalization possible?</span>
+                <input type="text" name="capitalization">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Add some additional information</span>
+                <input type="text" name="additionalInformation">
+            </div>
+            <div class="form__item">
+                <span class="form__label">Enter some details</span>
+                <textarea name="details"></textarea>
+            </div>
+            <div class="form__item__btn">
+                <button type="submit">Add</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

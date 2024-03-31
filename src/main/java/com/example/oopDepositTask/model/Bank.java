@@ -25,6 +25,15 @@ public class Bank {
             mappedBy = "bank")
     private List<Deposit> deposits = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            mappedBy = "bank")
+    private List<Img> image = new ArrayList<>();
+
+    public void addImageToBank(Img img){
+        img.setBank(this);
+        image.add(img);
+    }
+
     public String getBankName() {
         return bankName;
     }
